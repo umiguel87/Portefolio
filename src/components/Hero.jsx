@@ -27,7 +27,7 @@ export function Hero() {
           </a>
         </Button>
         <Button size="lg" variant="outline" className="gap-2" asChild>
-          <a href="/cv.pdf" download="CV_Luis_Rodrigues.pdf">
+          <a href={`${import.meta.env.BASE_URL}cv.pdf`} download="CV_Luis_Rodrigues.pdf">
             <Download className="size-4" />
             {t.hero.downloadCv}
           </a>
