@@ -11,7 +11,7 @@ export function Hero() {
         {t.hero.greeting}
       </p>
       <h1 className="hero-fade hero-delay-1 mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-        Luís Rodrigues
+        Miguel Rodrigues
       </h1>
       <p className="text-muted-foreground hero-fade hero-delay-2 mb-3 max-w-xl text-lg leading-relaxed sm:text-xl">
         {t.hero.tagline}
@@ -27,7 +27,7 @@ export function Hero() {
           </a>
         </Button>
         <Button size="lg" variant="outline" className="gap-2" asChild>
-          <a href={`${import.meta.env.BASE_URL}cv.pdf`} download="CV_Luis_Rodrigues.pdf">
+          <a href={`${import.meta.env.BASE_URL}cv.pdf`} download="CV_Miguel_Rodrigues.pdf">
             <Download className="size-4" />
             {t.hero.downloadCv}
           </a>
