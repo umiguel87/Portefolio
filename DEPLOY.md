@@ -1,45 +1,41 @@
 # Publicar o portefólio no GitHub Pages
 
-## Porque é que a página ficava em branco / 404?
+## O site não abre / fica em branco – o que verificar
 
-O servidor estava a servir o **código fonte** (o `index.html` da raiz, que pede `/src/main.jsx`). No GitHub Pages esse ficheiro não existe no sítio certo, por isso dá 404 e a página fica em branco.
+### 1. Source do GitHub Pages tem de ser **GitHub Actions**
 
-A solução é publicar **só a pasta `dist`** (o resultado de `npm run build`), onde o `index.html` já tem os scripts e assets corretos.
+- Repositório no GitHub → **Settings** → **Pages**
+- Em **Build and deployment**, no campo **Source** tem de estar: **GitHub Actions**  
+  Se estiver "Deploy from a branch", o site usa a branch (código fonte) e não o build, e fica em branco ou com 404.
+
+### 2. O workflow tem de ter corrido com sucesso
+
+- Repositório → **Actions**
+- Abre o workflow **"Deploy to GitHub Pages"**
+- O último run deve estar com um **tick verde**
+- Se estiver vermelho, clica e vê em que step falhou (por exemplo "Install dependencies" ou "Build")
+
+### 3. Branch correta
+
+O workflow corre quando fazes push para **main** ou **master**.  
+Se a tua branch principal tiver outro nome, diz qual é para ajustar o workflow.
+
+### 4. URL correta
+
+O site fica em: **https://&lt;teu-username-do-github&gt;.github.io/Portefolio/**  
+(Substitui pelo teu username e confirma que o repositório se chama exatamente **Portefolio**.)
 
 ---
 
-## Opção 1: Deploy automático com GitHub Actions (recomendado)
+## Resumo dos passos
 
-1. **Ativa o GitHub Pages no repositório**
-   - No GitHub: **Settings** → **Pages**
-   - Em **Build and deployment**, **Source**: escolhe **GitHub Actions**
-
-2. **Faz push do projeto** (incluindo a pasta `.github/workflows/`)
-   - O workflow `Deploy to GitHub Pages` corre em cada push à branch `main`
-   - Ele faz `npm run build` e publica a pasta `dist`
-
-3. **O site fica em:**  
-   `https://<teu-username>.github.io/Portefolio/`  
-   (Se o repositório tiver outro nome, muda `base` em `vite.config.js` para `'/nome-do-repo/'`.)
-
----
-
-## Opção 2: Deploy manual
-
-1. No teu PC:
-   ```bash
-   npm run build
-   ```
-2. A pasta `dist/` fica com o site pronto. Sobe **só o conteúdo de `dist/`** para a branch ou pasta que o GitHub Pages usa (por exemplo para a raiz da branch `gh-pages`).
+1. **Settings** → **Pages** → **Source** = **GitHub Actions**
+2. Fazer **push** da branch `main` (ou `master`) com o código atual
+3. Ir a **Actions** e confirmar que o workflow **Deploy to GitHub Pages** correu com sucesso (verde)
+4. Abrir **https://&lt;username&gt;.github.io/Portefolio/**
 
 ---
 
 ## CV em produção
 
-Para o botão "Descarregar CV" funcionar no site publicado, o ficheiro do CV tem de estar em `public/` antes do build:
-
-```bash
-cp src/assets/CV_Luis_Rodrigues.pdf public/cv.pdf
-```
-
-Depois volta a fazer `npm run build` (e novo deploy, se for manual).
+O CV deve estar em `public/` com o nome `cv.pdf` (por exemplo `public/CV_Miguel_Rodrigues.pdf` copiado para `public/cv.pdf`). Quem faz o build (local ou no Actions) usa essa pasta; o botão "Descarregar CV" no site aponta para esse ficheiro.
