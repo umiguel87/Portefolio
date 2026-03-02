@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: 'Início',
       about: 'Sobre',
+      education: 'Escolaridade',
       skills: 'Skills',
       internships: 'Estágios',
       projects: 'Projetos',
@@ -12,12 +13,17 @@ export const translations = {
       logo: 'Portefólio',
       menu: 'Menu',
       openMenu: 'Abrir menu',
+      languageLabel: 'Selecionar idioma',
     },
     hero: {
       greeting: 'Olá, eu sou',
       tagline: 'Programador full stack com forte foco em backend, dedicado à criação de sistemas escaláveis, bem estruturados e orientados para soluções eficientes.',
+      keywords: 'Backend · APIs · Bases de dados · Código limpo',
       viewProjects: 'Ver projetos',
       contact: 'Contactar',
+      downloadCv: 'Descarregar CV',
+      scrollHint: 'Descobre mais',
+      scrollDown: 'Descer na página',
     },
     about: {
       label: 'Sobre mim',
@@ -42,6 +48,10 @@ export const translations = {
       ferramentas: 'Ferramentas',
       tecnologias: 'Tecnologias',
     },
+    education: {
+      label: 'Escolaridade',
+      title: 'Formação académica',
+    },
     internships: {
       label: 'Estágios',
       title: 'Experiência em estágio',
@@ -61,7 +71,9 @@ export const translations = {
       label: 'Contacto',
       title: 'Vamos conversar',
       intro: 'Procuras colaboração ou queres dizer olá? Envia um email ou encontra-me nas redes.',
+      openToWork: 'Disponível para projetos e novas oportunidades.',
       sendEmail: 'Enviar email',
+      downloadCv: 'Descarregar CV',
     },
     footer: {
       madeBy: 'Desenhado e desenvolvido por mim.',
@@ -73,6 +85,7 @@ export const translations = {
     nav: {
       home: 'Home',
       about: 'About',
+      education: 'Education',
       skills: 'Skills',
       internships: 'Internships',
       projects: 'Projects',
@@ -82,12 +95,17 @@ export const translations = {
       logo: 'Portfolio',
       menu: 'Menu',
       openMenu: 'Open menu',
+      languageLabel: 'Select language',
     },
     hero: {
       greeting: "Hi, I'm",
       tagline: 'Full stack developer with a strong focus on backend, dedicated to building scalable, well-structured systems and efficient solutions.',
+      keywords: 'Backend · APIs · Databases · Clean code',
       viewProjects: 'View projects',
       contact: 'Contact',
+      downloadCv: 'Download CV',
+      scrollHint: 'Find out more',
+      scrollDown: 'Scroll down',
     },
     about: {
       label: 'About me',
@@ -112,6 +130,10 @@ export const translations = {
       ferramentas: 'Tools',
       tecnologias: 'Technologies',
     },
+    education: {
+      label: 'Education',
+      title: 'Academic background',
+    },
     internships: {
       label: 'Internships',
       title: 'Internship experience',
@@ -131,7 +153,9 @@ export const translations = {
       label: 'Contact',
       title: "Let's talk",
       intro: 'Looking for collaboration or just want to say hi? Send an email or find me on socials.',
+      openToWork: 'Open to projects and new opportunities.',
       sendEmail: 'Send email',
+      downloadCv: 'Download CV',
     },
     footer: {
       madeBy: 'Designed and built by me.',

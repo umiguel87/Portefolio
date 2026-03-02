@@ -17,6 +17,7 @@ export function Header() {
   const navLinks = [
     { href: '#hero', label: t.nav.home },
     { href: '#sobre', label: t.nav.about },
+    { href: '#escolaridade', label: t.nav.education },
     { href: '#skills', label: t.nav.skills },
     { href: '#estagios', label: t.nav.internships },
     { href: '#projetos', label: t.nav.projects },
@@ -70,7 +71,7 @@ export function Header() {
           </Sheet>
 
           {/* Language switcher — à direita */}
-          <div className="flex rounded-lg border p-0.5" role="group" aria-label="Idioma / Language">
+          <div className="flex rounded-lg border p-0.5" role="group" aria-label={t.header.languageLabel}>
             <button
               type="button"
               onClick={() => setLocale('pt')}
