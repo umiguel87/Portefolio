@@ -37,7 +37,10 @@ export const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         databases: 'Bases de dados',
+        tools: 'Ferramentas e Tecnologias',
       },
+      ferramentas: 'Ferramentas',
+      tecnologias: 'Tecnologias',
     },
     internships: {
       label: 'Estágios',
@@ -82,7 +85,7 @@ export const translations = {
     },
     hero: {
       greeting: "Hi, I'm",
-      tagline: 'Front-end developer · React · Building digital experiences that matter',
+      tagline: 'Full stack developer with a strong focus on backend, dedicated to building scalable, well-structured systems and efficient solutions.',
       viewProjects: 'View projects',
       contact: 'Contact',
     },
@@ -104,7 +107,10 @@ export const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         databases: 'Databases',
+        tools: 'Tools & Technologies',
       },
+      ferramentas: 'Tools',
+      tecnologias: 'Technologies',
     },
     internships: {
       label: 'Internships',

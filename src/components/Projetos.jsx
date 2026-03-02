@@ -13,38 +13,10 @@ import imagemDomu from '@/assets/domu.png'
 import imagemNexum from '@/assets/Nexum.png'
 
 const projetos = [
-  {
-    titulo: 'Nexum',
-    descricao: 'Breve descrição do projeto, stack usada e o que aprendeste ou o problema que resolveste.',
-    link: '#',
-    imagem: imagemNexum,
-    imagemContain: true,
-    tags: ['React', 'Tailwind'],
-  },
-  {
-    titulo: 'ERP - Project',
-    descricao: 'Outro projeto: objetivo, tecnologias e resultado. Inclui link para demo ou repositório.',
-    link: '#',
-    imagem: '/projetos/projeto2.jpg',
-    tags: ['JavaScript', 'API'],
-  },
-  {
-    titulo: 'DOMU',
-    descricao: 'Terceiro projeto para mostrar variedade. Pode ser um clone, um tool ou uma app completa.',
-    link: '#',
-    imagem: imagemDomu,
-    imagemContain: true,
-    tags: ['Ionic', 'Laravel', 'SQLite', 'Capacitor'],
-    colaborador: {
-      nome: 'Dario Gutierrez',
-      linkedin: 'https://www.linkedin.com/in/josé-dario-gouveia-0143b3311/', // link do LinkedIn dele
-      github: 'https://github.com/TUF322', // link do GitHub dele
-    },
-  },
 ]
 
 export function Projetos() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   return (
     <section id="projetos" className="border-t py-20 md:py-28" aria-labelledby="projetos-titulo">
@@ -81,7 +53,7 @@ export function Projetos() {
                   {p.titulo}
                   <ArrowUpRight className="size-4 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
                 </CardTitle>
-                <CardDescription className="line-clamp-3">{p.descricao}</CardDescription>
+                <CardDescription>{locale === 'en' && p.descricaoEn ? p.descricaoEn : p.descricao}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1 space-y-3">
                 {p.colaborador && (
@@ -124,9 +96,9 @@ export function Projetos() {
                   </div>
                 )}
                 <div className="flex flex-wrap gap-2">
-                  {p.tags.map((tag) => (
+                  {p.tags.map((tag, i) => (
                     <span
-                      key={tag}
+                      key={`${p.titulo}-${tag}-${i}`}
                       className="rounded-md bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
                     >
                       {tag}
