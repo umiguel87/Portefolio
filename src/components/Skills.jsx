@@ -18,19 +18,19 @@ const skillCategories = [
   },
   {
     key: 'frontend',
-    items: ['React (Vite)', 'Ionic', 'Angular'],
+    items: ['React', 'Ionic', 'Angular', 'Next.js'],
     icon: Layout,
     accent: 'from-blue-500/20 to-cyan-500/10 border-l-blue-500/40',
   },
   {
     key: 'backend',
-    items: ['Laravel', 'REST APIs', 'JWT Authentication'],
+    items: ['Laravel', 'REST APIs', 'JWT Authentication', 'Node.js', 'Express', 'Knex.js'],
     icon: Server,
     accent: 'from-emerald-500/20 to-green-500/10 border-l-emerald-500/40',
   },
   {
     key: 'databases',
-    items: ['SQLite', 'MySQL',],
+    items: ['SQLite', 'MySQL','PostgreSQL'],
     icon: Database,
     accent: 'from-violet-500/20 to-purple-500/10 border-l-violet-500/40',
   },
