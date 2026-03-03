@@ -18,7 +18,7 @@ const projetos = [
     descricaoEn: 'Nexum is a mobile and web app for managing projects, tasks and categories. Users can organise work into categories, create projects within those categories and manage tasks with priorities and deadlines.',
     imagem: imagemNexum,
     imagemContain: true,
-    link: '',
+    link: 'https://github.com/umiguel87/Nexum',
     tags: ['Ionic', 'Angular', 'Capacitor', 'SQLite'],
   },
 ]
@@ -43,7 +43,23 @@ export function Projetos() {
             return (
               <div className="mx-auto max-w-2xl">
                 <Card className="group overflow-hidden transition-shadow hover:shadow-xl">
-                  <a href={p.link || '#'} target="_blank" rel="noreferrer" className="block">
+                  {p.link ? (
+                    <a href={p.link} target="_blank" rel="noreferrer" className="block">
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted sm:aspect-[16/9]">
+                        {p.imagem ? (
+                          <img
+                            src={p.imagem}
+                            alt={`${t.projects.screenshot} ${p.titulo}`}
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center text-muted-foreground/50 text-sm">
+                            {t.projects.noImage}
+                          </div>
+                        )}
+                      </div>
+                    </a>
+                  ) : (
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted sm:aspect-[16/9]">
                       {p.imagem ? (
                         <img
@@ -57,13 +73,10 @@ export function Projetos() {
                         </div>
                       )}
                     </div>
-                  </a>
+                  )}
                   <CardHeader className="text-center pb-2 pt-6">
-                    <CardTitle className="flex flex-wrap justify-center items-center gap-2 text-xl sm:text-2xl">
+                    <CardTitle className="text-xl sm:text-2xl">
                       {p.titulo}
-                      {p.link && (
-                        <ArrowUpRight className="size-5 shrink-0 opacity-70 group-hover:opacity-100 inline-block ml-1" />
-                      )}
                     </CardTitle>
                     <CardDescription className="text-center text-base leading-relaxed max-w-xl mx-auto">
                       {locale === 'en' && p.descricaoEn ? p.descricaoEn : p.descricao}
@@ -122,8 +135,8 @@ export function Projetos() {
                     {p.link && (
                       <Button asChild>
                         <a href={p.link} target="_blank" rel="noreferrer" className="gap-2">
+                          <Github className="size-4" />
                           {t.projects.viewProject}
-                          <ArrowUpRight className="size-4" />
                         </a>
                       </Button>
                     )}
@@ -139,7 +152,23 @@ export function Projetos() {
                 key={p.titulo}
                 className="group flex flex-col overflow-hidden transition-shadow hover:shadow-lg"
               >
-                <a href={p.link} target="_blank" rel="noreferrer" className="block">
+                {p.link ? (
+                  <a href={p.link} target="_blank" rel="noreferrer" className="block">
+                    <div className={`relative aspect-video w-full flex items-center justify-center ${p.imagemContain ? 'bg-muted p-1.5' : 'bg-muted'}`}>
+                      {p.imagem ? (
+                        <img
+                          src={p.imagem}
+                          alt={`${t.projects.screenshot} ${p.titulo}`}
+                          className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${p.imagemContain ? 'object-contain object-center' : 'object-cover'}`}
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-muted-foreground/50 text-sm">
+                          {t.projects.noImage}
+                        </div>
+                      )}
+                    </div>
+                  </a>
+                ) : (
                   <div className={`relative aspect-video w-full flex items-center justify-center ${p.imagemContain ? 'bg-muted p-1.5' : 'bg-muted'}`}>
                     {p.imagem ? (
                       <img
@@ -153,11 +182,10 @@ export function Projetos() {
                       </div>
                     )}
                   </div>
-                </a>
+                )}
                 <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center justify-between gap-2 text-lg">
+                  <CardTitle className="text-lg">
                     {p.titulo}
-                    <ArrowUpRight className="size-4 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
                   </CardTitle>
                   <CardDescription>{locale === 'en' && p.descricaoEn ? p.descricaoEn : p.descricao}</CardDescription>
                 </CardHeader>
@@ -194,9 +222,14 @@ export function Projetos() {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-2">
-                  <Button variant="outline" size="sm" className="w-full sm:w-auto" asChild>
-                    <a href={p.link} target="_blank" rel="noreferrer">{t.projects.viewProject}</a>
-                  </Button>
+                  {p.link && (
+                    <Button variant="outline" size="sm" className="w-full sm:w-auto gap-1.5" asChild>
+                      <a href={p.link} target="_blank" rel="noreferrer">
+                        <Github className="size-4" />
+                        {t.projects.viewProject}
+                      </a>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             ))}
